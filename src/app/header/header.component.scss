@@ -20,9 +20,14 @@ img.basketall {
   background-color: $app-black;
 }
 
-a{
+.nav{
   color: white;
+  padding: 14px 16px;
   &:hover{
-    background-color: $app-blue;
+    background-color: #186586;
   }
+}
+
+.active{
+  background-color: $app-blue;
 }

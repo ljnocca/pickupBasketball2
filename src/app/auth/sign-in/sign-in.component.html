@@ -1,5 +1,6 @@
-<form (ngSubmit)="onSignin(f)" #f="ngForm" id="formContainer">
-  <div class="formField">
+<form (ngSubmit)="onSignin(f)" #f="ngForm" class="pure-form">
+  <legend class="lib-pl20">Welcome, Sign In Below</legend>
+  <div class="lib-flex lib-stack formField">
     <input required
            email
            type="email"
@@ -10,7 +11,7 @@
     >
     <label *ngIf="email.invalid">Please enter a valid email</label>
   </div>
-  <div class="formField">
+  <div class="lib-flex lib-stack formField">
     <input required
            password
            [type]="showPassword? 'text' : 'password'"
@@ -22,16 +23,22 @@
     <i *ngIf="!showPassword" class="material-icons" (click)="toggleShowPassword()">visibility</i>
     <i *ngIf="showPassword" class="material-icons" (click)="toggleShowPassword()">visibility_off</i>
     <label *ngIf="password.invalid">Please enter a password</label>
-
   </div>
-
-  <button
-    *ngIf="!f.valid"
-    disabled>Log In</button>
-  <button
-    *ngIf="f.valid"
-    type="submit"
-  >Log In</button>
-  <p>Don't have an account? <a routerLink="/signup"> Create one here!</a></p>
+  <div class="button">
+    <button
+      *ngIf="!f.valid"
+      disabled
+      class="pure-button pure-button-disabled"
+    >Log In</button>
+    <button
+      *ngIf="f.valid"
+      type="submit"
+      class="pure-button pure-button-primary"
+    >Log In</button>
+  </div>
 </form>
+<div class="lib-mt20 createAccount">
+  <p>Don't have an account?</p>
+  <p><a routerLink="/signup"> Create one here!</a></p>
+</div>
 

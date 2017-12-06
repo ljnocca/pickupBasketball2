@@ -21,9 +21,15 @@
 .split {
   background-color: $app-grey;
   width: 1px;
-
 }
 
+.title{
+  font-size: 20px;
+  margin: 10px 0;
+  @media #{$tablet} {
+    font-size: 40px;
+  }
+}
 
 // SLIDER CSS
 

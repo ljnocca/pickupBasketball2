@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from '../auth/auth.service';
 
 @Component({
@@ -7,6 +7,7 @@ import {AuthService} from '../auth/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @ViewChild('signIn') signInTab: ElementRef;
 
   constructor(private authService: AuthService) { }
 

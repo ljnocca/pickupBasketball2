@@ -1,5 +1,6 @@
-<form (ngSubmit)="onSignup(f)" #f="ngForm" id="formContainer">
-  <div class="formField">
+<form (ngSubmit)="onSignup(f)" #f="ngForm" class="pure-form">
+  <legend class="lib-pl20">Register Below</legend>
+  <div class="lib-flex lib-stack formField">
     <input required
            type="text"
            placeholder="First Name"
@@ -9,7 +10,7 @@
     >
     <label *ngIf="fname.invalid">Please enter a first name</label>
   </div>
-  <div class="formField">
+  <div class="lib-flex lib-stack formField">
     <input required
            type="text"
            placeholder="Last Name"
@@ -19,7 +20,7 @@
     >
     <label *ngIf="lname.invalid">Please enter a last name</label>
   </div>
-  <div class="formField">
+  <div class="lib-flex lib-stack formField">
     <input required
            email
            type="email"
@@ -30,7 +31,7 @@
     >
     <label *ngIf="email.invalid">Please enter a valid email</label>
   </div>
-  <div class="formField">
+  <div class="lib-flex lib-stack formField">
     <input required
            [type]="showPassword? 'text' : 'password'"
            placeholder="Password"
@@ -42,12 +43,16 @@
     <i *ngIf="showPassword" class="material-icons" (click)="toggleShowPassword()">visibility_off</i>
     <label *ngIf="password.invalid">Please make sure your password is at least 6 characters long</label>
   </div>
-
-  <button
-    *ngIf="!f.valid"
-    disabled>Register</button>
-  <button
-    *ngIf="f.valid"
-    type="submit"
-  >Register</button>
+  <div class="button">
+    <button
+      *ngIf="!f.valid"
+      disabled
+      class="pure-button pure-button-disabled"
+    >Register</button>
+    <button
+      *ngIf="f.valid"
+      class="pure-button pure-button-primary"
+      type="submit"
+    >Register</button>
+  </div>
 </form>

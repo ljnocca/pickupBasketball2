@@ -7,28 +7,36 @@
   </div>
   <div class="lib-flex">
     <ng-template [ngIf]="authService.isAuthenticated()">
-      <div
-         routerLink="/nextgame">
+      <div class="nav"
+           routerLink="/nextgame"
+           routerLinkActive="active"
+      >
         Next Game
       </div>
-      <div
-         routerLink="/calendar">
+      <div class="nav"
+           routerLink="/calendar"
+           routerLinkActive="active"
+      >
         Calendar
       </div>
-      <div
-         (click)="onLogout()">
+      <div class="nav"
+        (click)="onLogout()">
         Logout
-      </div>>
+      </div>
     </ng-template>
     <ng-template [ngIf]="!authService.isAuthenticated()">
-      <div
-         routerLink="/signin">
+      <div class="nav"
+           routerLink="/signin"
+           routerLinkActive="active"
+      >
         Sign In
       </div>
-      <a mat-tab-link
-         routerLink="/signup">
+      <div class="nav"
+           routerLink="/signup"
+           routerLinkActive="active"
+      >
         Register
-      </a>
+      </div>
     </ng-template>
   </div>
 </div>
