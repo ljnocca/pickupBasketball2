@@ -1,0 +1,53 @@
+<form (ngSubmit)="onSignup(f)" #f="ngForm" id="formContainer">
+  <div class="formField">
+    <input required
+           type="text"
+           placeholder="First Name"
+           name="fname"
+           ngModel
+           #fname="ngModel"
+    >
+    <label *ngIf="fname.invalid">Please enter a first name</label>
+  </div>
+  <div class="formField">
+    <input required
+           type="text"
+           placeholder="Last Name"
+           name="lname"
+           ngModel
+           #lname="ngModel"
+    >
+    <label *ngIf="lname.invalid">Please enter a last name</label>
+  </div>
+  <div class="formField">
+    <input required
+           email
+           type="email"
+           placeholder="Email"
+           name="email"
+           ngModel
+           #email="ngModel"
+    >
+    <label *ngIf="email.invalid">Please enter a valid email</label>
+  </div>
+  <div class="formField">
+    <input required
+           [type]="showPassword? 'text' : 'password'"
+           placeholder="Password"
+           name="password"
+           ngModel
+           #password="ngModel"
+    >
+    <i *ngIf="!showPassword" class="material-icons" (click)="toggleShowPassword()">visibility</i>
+    <i *ngIf="showPassword" class="material-icons" (click)="toggleShowPassword()">visibility_off</i>
+    <label *ngIf="password.invalid">Please make sure your password is at least 6 characters long</label>
+  </div>
+
+  <button
+    *ngIf="!f.valid"
+    disabled>Register</button>
+  <button
+    *ngIf="f.valid"
+    type="submit"
+  >Register</button>
+</form>

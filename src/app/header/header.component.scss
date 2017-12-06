@@ -1,0 +1,28 @@
+@import '../../../src/_globalVariables.scss';
+
+.title{
+  text-align: center;
+  color: $app-grey;
+  font-size: 36px;
+  margin: 0;
+}
+
+.lifetime{
+  text-align: center;
+  padding-top: 20px;
+}
+
+img.basketall {
+  width: 30px;
+}
+
+.container{
+  background-color: $app-black;
+}
+
+a{
+  color: white;
+  &:hover{
+    background-color: $app-blue;
+  }
+}

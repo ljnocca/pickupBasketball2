@@ -1,0 +1,344 @@
+$tablet: only screen and (min-width : 768px);
+$desktop: only screen and (min-width : 1020px);
+$ultrawide: only screen and (min-width : 1280px);
+
+
+// COLORS
+$app-blue: #0078aa;
+$app-grey: #CCCCCC;
+$app-black: #444;
+
+
+// CSS Library
+
+$prefix: 'lib';
+
+.#{$prefix}-mxw {
+  max-width: 1280px;
+}
+
+.#{$prefix}-flex {
+  display: flex;
+}
+
+.#{$prefix}-stack {
+  flex-direction: column
+}
+
+@media #{$tablet} {
+  .#{$prefix}-stack-tablet {
+    flex-direction: column
+  }
+  .#{$prefix}-unstack-tablet {
+    flex-direction: row
+  }
+}
+
+@media #{$desktop} {
+  .#{$prefix}-stack-desktop {
+    flex-direction: column
+  }
+  .#{$prefix}-unstack-desktop {
+    flex-direction: row
+  }
+}
+
+@media #{$ultrawide} {
+  .#{$prefix}-stack-ultrawide {
+    flex-direction: column
+  }
+  .#{$prefix}-unstack-ultrawide {
+    flex-direction: row
+  }
+}
+
+.#{$prefix}-main-start {
+  justify-content: flex-start
+}
+
+.#{$prefix}-main-center {
+  justify-content: center
+}
+
+.#{$prefix}-main-end {
+  justify-content: flex-end
+}
+
+.#{$prefix}-main-space-between {
+  justify-content: space-between
+}
+
+.#{$prefix}-main-space-around {
+  justify-content: space-around
+}
+
+.#{$prefix}-cross-start {
+  align-items: flex-start
+}
+
+.#{$prefix}-cross-center {
+  align-items: center
+}
+
+.#{$prefix}-cross-end {
+  align-items: flex-end
+}
+
+.#{$prefix}-cross-stretch {
+  align-items: stretch
+}
+
+.#{$prefix}-grow {
+  flex: 1;
+  height: auto
+}
+
+.#{$prefix}-img-fluid {
+  display: block;
+  height: auto;
+  width: 100%
+}
+
+.#{$prefix}-mt0 {
+  margin-top: 0px;
+}
+
+.#{$prefix}-mt5 {
+  margin-top: 5px;
+}
+
+.#{$prefix}-mt10 {
+  margin-top: 10px;
+}
+
+.#{$prefix}-mt15 {
+  margin-top: 15px;
+}
+
+.#{$prefix}-mt20 {
+  margin-top: 20px;
+}
+
+.#{$prefix}-mrauto {
+  margin-right: auto
+}
+
+.#{$prefix}-mr0 {
+  margin-right: 0px;
+}
+
+.#{$prefix}-mr5 {
+  margin-right: 5px;
+}
+
+.#{$prefix}-mr10 {
+  margin-right: 10px;
+}
+
+.#{$prefix}-mr-10 {
+  margin-right: -10px;
+}
+
+.#{$prefix}-mr15 {
+  margin-right: 15px;
+}
+
+.#{$prefix}-mr20 {
+  margin-right: 20px;
+}
+
+.#{$prefix}-mb0 {
+  margin-bottom: 0px;
+}
+
+.#{$prefix}-mb5 {
+  margin-bottom: 5px;
+}
+
+.#{$prefix}-mb10 {
+  margin-bottom: 10px;
+}
+
+.#{$prefix}-mb15 {
+  margin-bottom: 15px;
+}
+
+.#{$prefix}-mb20 {
+  margin-bottom: 20px;
+}
+
+.#{$prefix}-mlauto {
+  margin-left: auto
+}
+
+.#{$prefix}-ml0 {
+  margin-left: 0px;
+}
+
+.#{$prefix}-ml5 {
+  margin-left: 5px;
+}
+
+.#{$prefix}-ml10 {
+  margin-left: 10px;
+}
+
+.#{$prefix}-ml-10 {
+  margin-left: -10px;
+}
+
+.#{$prefix}-ml15 {
+  margin-left: 15px;
+}
+
+.#{$prefix}-ml20 {
+  margin-left: 20px;
+}
+
+.#{$prefix}-m0 {
+  margin: 0
+}
+
+.#{$prefix}-m5 {
+  margin: 5px;
+}
+
+.#{$prefix}-m10 {
+  margin: 10px;
+}
+
+.#{$prefix}-m15 {
+  margin: 15px;
+}
+
+.#{$prefix}-m20 {
+  margin: 20px;
+}
+
+.#{$prefix}-pt0 {
+  padding-top: 0px;
+}
+
+.#{$prefix}-pt5 {
+  padding-top: 5px;
+}
+
+.#{$prefix}-pt10 {
+  padding-top: 10px;
+}
+
+.#{$prefix}-pt15 {
+  padding-top: 15px;
+}
+
+.#{$prefix}-pt20 {
+  padding-top: 20px;
+}
+
+.#{$prefix}-pr0 {
+  padding-right: 0px;
+}
+
+.#{$prefix}-pr5 {
+  padding-right: 5px;
+}
+
+.#{$prefix}-pr10 {
+  padding-right: 10px;
+}
+
+.#{$prefix}-pr15 {
+  padding-right: 15px;
+}
+
+.#{$prefix}-pr20 {
+  padding-right: 20px;
+}
+
+.#{$prefix}-pb0 {
+  padding-bottom: 0px;
+}
+
+.#{$prefix}-pb5 {
+  padding-bottom: 5px;
+}
+
+.#{$prefix}-pb10 {
+  padding-bottom: 10px;
+}
+
+.#{$prefix}-pb15 {
+  padding-bottom: 15px;
+}
+
+.#{$prefix}-pb20 {
+  padding-bottom: 20px;
+}
+
+.#{$prefix}-pl0 {
+  padding-left: 0px;
+}
+
+.#{$prefix}-pl5 {
+  padding-left: 5px;
+}
+
+.#{$prefix}-pl10 {
+  padding-left: 10px;
+}
+
+.#{$prefix}-pl15 {
+  padding-left: 15px;
+}
+
+.#{$prefix}-pl20 {
+  padding-left: 20px;
+}
+
+.#{$prefix}-p0 {
+  padding: 0px;
+}
+
+.#{$prefix}-p5 {
+  padding: 5px;
+}
+
+.#{$prefix}-p10 {
+  padding: 10px;
+}
+
+.#{$prefix}-p15 {
+  padding: 15px;
+}
+
+.#{$prefix}-p20 {
+  padding: 20px;
+}
+
+.#{$prefix}-tt-uppercase {
+  text-transform: uppercase;
+}
+
+.#{$prefix}-tt-capitalize {
+  text-transform: capitalize;
+}
+
+.#{$prefix}-ta-center {
+  text-align: center;
+}
+
+.#{$prefix}-pointer {
+  cursor: pointer;
+}
+
+.#{$prefix}-hide-mobile {
+  @media only screen and (max-width : 767px) {
+    display: none;
+  }
+}
+
+.#{$prefix}-hide-tablet {
+  @media #{$tablet} {
+    display: none;
+  }
+}

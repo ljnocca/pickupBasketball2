@@ -1,0 +1,34 @@
+<div class="container lib-flex lib-stack lib-cross-center">
+  <div>
+    <div class="lifetime">
+      <img src="../../assets/images/lifetime-logo.svg">
+    </div>
+    <h1 class="title"><span></span> BASKETBALL</h1>
+  </div>
+  <div class="lib-flex">
+    <ng-template [ngIf]="authService.isAuthenticated()">
+      <div
+         routerLink="/nextgame">
+        Next Game
+      </div>
+      <div
+         routerLink="/calendar">
+        Calendar
+      </div>
+      <div
+         (click)="onLogout()">
+        Logout
+      </div>>
+    </ng-template>
+    <ng-template [ngIf]="!authService.isAuthenticated()">
+      <div
+         routerLink="/signin">
+        Sign In
+      </div>
+      <a mat-tab-link
+         routerLink="/signup">
+        Register
+      </a>
+    </ng-template>
+  </div>
+</div>

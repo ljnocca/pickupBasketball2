@@ -1,0 +1,37 @@
+<form (ngSubmit)="onSignin(f)" #f="ngForm" id="formContainer">
+  <div class="formField">
+    <input required
+           email
+           type="email"
+           placeholder="Email"
+           name="email"
+           ngModel
+           #email="ngModel"
+    >
+    <label *ngIf="email.invalid">Please enter a valid email</label>
+  </div>
+  <div class="formField">
+    <input required
+           password
+           [type]="showPassword? 'text' : 'password'"
+           placeholder="Password"
+           name="password"
+           ngModel
+           #password="ngModel"
+    >
+    <i *ngIf="!showPassword" class="material-icons" (click)="toggleShowPassword()">visibility</i>
+    <i *ngIf="showPassword" class="material-icons" (click)="toggleShowPassword()">visibility_off</i>
+    <label *ngIf="password.invalid">Please enter a password</label>
+
+  </div>
+
+  <button
+    *ngIf="!f.valid"
+    disabled>Log In</button>
+  <button
+    *ngIf="f.valid"
+    type="submit"
+  >Log In</button>
+  <p>Don't have an account? <a routerLink="/signup"> Create one here!</a></p>
+</form>
+

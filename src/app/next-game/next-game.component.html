@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>The next game is: {{nextGame}}</h1>
+  <app-calendar [players]="players"></app-calendar>
+  <hr>
+  <h3>My Status For Next Game Is: <span [ngClass]="{statusIn: status =='IN', statusOut: status =='OUT'}">{{status}}</span></h3>
+  <div class="container">
+    <label class="switch" for="checkbox">
+      <input (click)="onSlide()" [checked]="checked" type="checkbox" id="checkbox" />
+      <div class="slider round"></div>
+    </label>
+  </div>
+</div>
+
+<hr>
+<div class="lib-flex statusDiv">
+  <div>
+    <h3>PLAYERS IN: {{playersIn.length}}</h3>
+    <div *ngFor="let player of playersIn; let i = index">
+      {{i+1}} - {{player.firstName}} {{player.lastName}}
+    </div>
+  </div>
+
+  <div class="split"></div>
+
+  <div>
+    <h3>PLAYERS OUT: {{playersOut.length}}</h3>
+    <div *ngFor="let player of playersOut; let i = index">
+      {{i+1}} {{player.firstName}} {{player.lastName}}
+    </div>
+  </div>
+
+  <!--<i class="material-icons" *ngIf="player.status === 'OUT'">thumb_down</i>-->
+  <!--<i class="material-icons" *ngIf="player.status === 'IN'">thumb_up</i>-->
+
+</div>
