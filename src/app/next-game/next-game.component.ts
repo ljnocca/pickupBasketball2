@@ -83,6 +83,18 @@ export class NextGameComponent implements OnInit {
       .subscribe(
         (putResponse: Response) => {
           console.log('successfully saved new players array');
+
+          this.playersIn = [];
+          this.playersOut = [];
+
+          for (let i = 0; i < this.players.length; i++) {
+            if (this.players[i].status === 'IN') {
+              this.playersIn.push(this.players[i]);
+            } else if (this.players[i].status === 'OUT') {
+              this.playersOut.push(this.players[i]);
+            }
+          }
+
         },
         (error) => console.log(error)
       );
@@ -104,8 +116,5 @@ export class NextGameComponent implements OnInit {
           (error) => console.log(error)
         );
     }
-    };
-
-
-
+  }
 }
