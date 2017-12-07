@@ -18,6 +18,7 @@ export class NextGameComponent implements OnInit {
   public players: Array<Player> = [];
   public playersIn: Array<Player> = [];
   public playersOut: Array<Player> = [];
+  public isAdmin: boolean = false;
   token: string;
 
   constructor(private http: Http,
@@ -31,6 +32,11 @@ export class NextGameComponent implements OnInit {
           // set players array to response
           this.players = response.json();
           this.loggedInEmail = firebase.auth().currentUser.email;
+
+          // check if logged in email is an approved ADMIN
+          if (this.loggedInEmail === 'laurent@laurent.com') {
+            this.isAdmin = true;
+          }
 
           // find index of logged in user to set status
           for (let i = 0; i < this.players.length; i++) {
@@ -58,17 +64,13 @@ export class NextGameComponent implements OnInit {
       );
   }
 
-  refreshDays() {
-
-  }
-
   onSlide() {
     if (this.status === 'OUT' ) {
       this.checked = false;
       this.status = 'IN';
     } else if (this.status === 'IN') {
       this.checked = true;
-      this.status = 'OUT'
+      this.status = 'OUT';
     }
 
     for (let i = 0; i < this.players.length; i++) {
@@ -85,5 +87,25 @@ export class NextGameComponent implements OnInit {
         (error) => console.log(error)
       );
   }
+
+  resetPlayersStatus() {
+    // this will reset all status of registered players to OUT
+
+    if (confirm('are you sure?')) {
+      for (let i = 0; i < this.players.length; i++) {
+        this.players[i].status = 'OUT';
+      }
+
+      this.http.put('https://pickupbasketball-11fc7.firebaseio.com/players.json?auth=' + this.token, this.players)
+        .subscribe(
+          (putResponse: Response) => {
+            console.log('Players status has been successfully reset');
+          },
+          (error) => console.log(error)
+        );
+    }
+    };
+
+
 
 }

@@ -1,28 +1,32 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import * as moment from 'moment';
 import {AuthService} from '../../auth/auth.service';
 import {Http, Response} from '@angular/http';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss']
 })
-export class CalendarComponent implements OnInit, OnChanges {
+export class CalendarComponent implements OnInit {
 
   daysAdded: number;
   gameDay;
   gameTime;
+  currentHour;
   today;
   @Input() players;
   token: string;
+  firstLoginHappened: boolean = true;
 
   constructor(private authService: AuthService,
               private http: Http) { }
 
   ngOnInit() {
     this.token = this.authService.getToken();
-    console.log(this.token);
+    this.currentHour = moment().get('hour');
+
     this.today = moment().format('d');
 
     if (this.today === '0') {
@@ -56,46 +60,6 @@ export class CalendarComponent implements OnInit, OnChanges {
     }
 
     this.gameDay = moment().add(this.daysAdded, 'days').format('dddd, MMMM Do');
-  }
-
-  ngOnChanges() {
-    if (this.today === '0') {
-      // SUNDAY
-      // TODO remove the below if statment (just testing)
-      if (moment().get('hour') > 12) {
-        this.resetPlayersStatus()
-      }
-    } else if (this.today === '2') {
-      // TUESDAY
-      // RESET STATUS ON GAMEDAY AFTER NOON
-      if (moment().get('hour') > 12) {
-        this.resetPlayersStatus()
-      }
-    } else if (this.today === '4') {
-      // THURSDAY
-      if (moment().get('hour') > 12) {
-        this.resetPlayersStatus()
-      }
-    } else if (this.today === '6') {
-      // SATURDAY
-      if (moment().get('hour') > 12) {
-        this.resetPlayersStatus()
-      }
-    }
-  }
-
-  resetPlayersStatus() {
-    for (let i = 0; i < this.players.length; i++) {
-      this.players[i].status = 'OUT';
-    }
-    // TODO PREVENT RESET FROM PERFORMING MANY TIMES ON SAME DAY
-    // this.http.put('https://pickupbasketball-11fc7.firebaseio.com/players.json?auth=' + this.token, this.players)
-    //   .subscribe(
-    //     (putResponse: Response) => {
-    //       console.log('Players status has been successfully reset');
-    //     },
-    //     (error) => console.log(error)
-    //   );
   }
 
 }

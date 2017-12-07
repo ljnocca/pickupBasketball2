@@ -1,3 +1,6 @@
+
+
+
 <div class="container">
   <p class="title">The next game is: {{nextGame}}</p>
   <app-calendar class="title" [players]="players"></app-calendar>
@@ -12,9 +15,12 @@
 </div>
 
 <hr>
+
+<button id="reset" *ngIf="isAdmin" class="button-error pure-button" (click)="resetPlayersStatus()">Reset Player Statuses</button>
+
 <div class="lib-flex statusDiv">
   <div>
-    <p class="title">PLAYERS IN: {{playersIn.length}}</p>
+    <p class="title">PLAYERS IN: {{playersIn.length}} <i class="material-icons">thumb_up</i></p>
     <div *ngFor="let player of playersIn; let i = index">
       {{i+1}} - {{player.firstName}} {{player.lastName}}
     </div>
@@ -23,13 +29,9 @@
   <div class="split"></div>
 
   <div>
-    <p class="title">PLAYERS OUT: {{playersOut.length}}</p>
+    <p class="title">PLAYERS OUT: {{playersOut.length}}<i class="material-icons">thumb_down</i></p>
     <div *ngFor="let player of playersOut; let i = index">
       {{i+1}} {{player.firstName}} {{player.lastName}}
     </div>
   </div>
-
-  <!--<i class="material-icons" *ngIf="player.status === 'OUT'">thumb_down</i>-->
-  <!--<i class="material-icons" *ngIf="player.status === 'IN'">thumb_up</i>-->
-
 </div>

@@ -16,6 +16,8 @@
 
 .statusDiv{
   justify-content: space-evenly;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .split {
@@ -30,6 +32,16 @@
     font-size: 40px;
   }
 }
+
+#reset{
+  background-color: red;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
 
 // SLIDER CSS
 
