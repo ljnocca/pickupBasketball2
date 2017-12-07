@@ -18,7 +18,6 @@ export class CalendarComponent implements OnInit {
   today;
   @Input() players;
   token: string;
-  firstLoginHappened: boolean = true;
 
   constructor(private authService: AuthService,
               private http: Http) { }
@@ -41,6 +40,10 @@ export class CalendarComponent implements OnInit {
       // TUESDAY
       this.daysAdded = 0;
       this.gameTime = '6:30 AM';
+      if (this.currentHour > 8) {
+        this.daysAdded = 1;
+        this.gameTime = '6:30 AM';
+      }
     } else if (this.today === '3') {
       // WEDNESDAY
       this.daysAdded = 1;
@@ -49,6 +52,10 @@ export class CalendarComponent implements OnInit {
       // THURSDAY
       this.daysAdded = 0;
       this.gameTime = '6:30 AM';
+      if (this.currentHour > 8) {
+        this.daysAdded = 2;
+        this.gameTime = '7:30 AM';
+      }
     } else if (this.today === '5') {
       // FRIDAY
       this.daysAdded = 1;
@@ -57,6 +64,10 @@ export class CalendarComponent implements OnInit {
       // SATURDAY
       this.daysAdded = 0;
       this.gameTime = '7:30 AM';
+      if (this.currentHour > 9) {
+        this.daysAdded = 2;
+        this.gameTime = '6:30 AM';
+      }
     }
 
     this.gameDay = moment().add(this.daysAdded, 'days').format('dddd, MMMM Do');
