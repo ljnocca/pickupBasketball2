@@ -77,7 +77,7 @@ export class AuthService {
         }
       )
       .catch(
-        error => console.log('There was an error signing in: ', error)
+        error => alert('Wrong email or password. Please try again.')
       );
   }
 

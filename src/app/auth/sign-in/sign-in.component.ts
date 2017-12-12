@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {AuthService} from '../auth.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-sign-in',
@@ -19,6 +20,18 @@ export class SignInComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
     this.authService.signinUser(email, password);
+  }
+
+  resetPassword(email) {
+    const auth = firebase.auth();
+
+    auth.sendPasswordResetEmail(email.value)
+      .then(() => {
+      alert('email has been sent');
+    }).catch(() => {
+      alert('an error occurred, please try again');
+    });
+
   }
 
   toggleShowPassword() {

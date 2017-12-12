@@ -41,7 +41,7 @@ export class CalendarComponent implements OnInit {
       this.daysAdded = 0;
       this.gameTime = '6:30 AM';
       if (this.currentHour > 8) {
-        this.daysAdded = 1;
+        this.daysAdded = 2;
         this.gameTime = '6:30 AM';
       }
     } else if (this.today === '3') {
@@ -65,7 +65,7 @@ export class CalendarComponent implements OnInit {
       this.daysAdded = 0;
       this.gameTime = '7:30 AM';
       if (this.currentHour > 9) {
-        this.daysAdded = 2;
+        this.daysAdded = 3;
         this.gameTime = '6:30 AM';
       }
     }

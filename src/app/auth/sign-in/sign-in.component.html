@@ -38,6 +38,9 @@
   </div>
 </form>
 <div class="lib-mt20 createAccount">
-  <p>Don't have an account?</p>
-  <p><a routerLink="/signup"> Create one here!</a></p>
+  <p>Don't have an account? <a routerLink="/signup"> Create one here!</a></p>
+
+  <hr>
+
+  <p>Forgot your password? <a class="lib-pointer" (click)="resetPassword(email)">Reset it here!</a></p>
 </div>
