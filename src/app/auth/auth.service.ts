@@ -88,13 +88,25 @@ export class AuthService {
   }
 
   getToken() {
-    firebase.auth().currentUser.getIdToken()
-      .then(
-        (token: string) => {
-          this.token = token;
-        }
-      );
-    return this.token;
+
+    const userKey = Object.keys(window.localStorage)
+      .filter(it => it.startsWith('firebase:authUser'))[0];
+    const user = userKey ? JSON.parse(localStorage.getItem(userKey)).stsTokenManager.accessToken : undefined;
+    console.log('user', user);
+
+    if (user === undefined) {
+      firebase.auth().currentUser.getIdToken()
+        .then(
+          (token: string) => {
+            this.token = token;
+            console.log('token is', this.token);
+          }
+        );
+      return this.token;
+    } else {
+      this.token = user;
+      return this.token;
+    }
   }
 
   isAuthenticated() {

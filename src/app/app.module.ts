@@ -19,8 +19,8 @@ const appRoutes: Routes = [
   { path: '', component: SignInComponent},
   { path: 'signup', component: SignUpComponent},
   { path: 'signin', component: SignInComponent},
-  { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuardService]},
-  { path: 'nextgame', component: NextGameComponent, canActivate: [AuthGuardService]}
+  { path: 'nextgame', component: NextGameComponent},
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

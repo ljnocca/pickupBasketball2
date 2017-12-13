@@ -19,19 +19,32 @@ export class NextGameComponent implements OnInit {
   public playersIn: Array<Player> = [];
   public playersOut: Array<Player> = [];
   public isAdmin: boolean = false;
-  token: string;
+  token;
 
   constructor(private http: Http,
               private authService: AuthService) { }
 
   ngOnInit() {
     this.token = this.authService.getToken();
+
     this.http.get('https://pickupbasketball-11fc7.firebaseio.com/players.json?auth=' + this.token)
       .subscribe(
         (response: Response) => {
           // set players array to response
           this.players = response.json();
-          this.loggedInEmail = firebase.auth().currentUser.email;
+
+          const userKey = Object.keys(window.localStorage)
+            .filter(it => it.startsWith('firebase:authUser'))[0];
+          const useremail = userKey ? JSON.parse(localStorage.getItem(userKey)).email : undefined;
+          console.log('userEmail', useremail);
+
+          if (useremail === undefined) {
+            this.loggedInEmail = firebase.auth().currentUser.email;
+          } else {
+            this.loggedInEmail = useremail;
+          }
+
+          // this.loggedInEmail = firebase.auth().currentUser.email;
 
           // check if logged in email is an approved ADMIN
           if (this.loggedInEmail === 'laurent@laurent.com') {
@@ -66,10 +79,10 @@ export class NextGameComponent implements OnInit {
 
   onSlide() {
     if (this.status === 'OUT' ) {
-      this.checked = false;
+      this.checked = true;
       this.status = 'IN';
     } else if (this.status === 'IN') {
-      this.checked = true;
+      this.checked = false;
       this.status = 'OUT';
     }
 

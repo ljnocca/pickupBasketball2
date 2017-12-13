@@ -17,7 +17,7 @@ export class CalendarComponent implements OnInit {
   currentHour;
   today;
   @Input() players;
-  token: string;
+  token;
 
   constructor(private authService: AuthService,
               private http: Http) { }
