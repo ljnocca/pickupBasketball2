@@ -16,11 +16,11 @@ import {AuthGuardService} from './auth/auth-guard.service';
 import * as moment from 'moment';
 
 const appRoutes: Routes = [
-  { path: '', component: SignInComponent},
+  // { path: '', component: SignInComponent},
   { path: 'signup', component: SignUpComponent},
   { path: 'signin', component: SignInComponent},
   { path: 'nextgame', component: NextGameComponent},
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'signin' }
 ];
 
 @NgModule({
