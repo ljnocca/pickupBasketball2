@@ -3,11 +3,33 @@ import {Player} from '../players/player.model';
 import {Http, Response} from '@angular/http';
 import {AuthService} from '../auth/auth.service';
 import * as firebase from 'firebase';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-next-game',
   templateUrl: './next-game.component.html',
-  styleUrls: ['./next-game.component.scss']
+  styleUrls: ['./next-game.component.scss'],
+  animations: [
+    trigger('status', [
+      state('IN', style({
+        opacity: 1,
+        transform: 'translateY(0)'
+      })),
+      transition('void => *', [
+        style({
+          opacity: 0,
+          transform: 'translateY(-100px)'
+        }),
+          animate(300)
+      ]),
+      transition('* => void', [
+        animate(300, style({
+          opacity: 0,
+          transform: 'translateY(-100px)'
+        }))
+      ])
+    ])
+  ]
 })
 export class NextGameComponent implements OnInit {
   public nextGame;

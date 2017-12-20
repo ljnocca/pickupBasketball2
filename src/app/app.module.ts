@@ -14,6 +14,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {AuthService} from './auth/auth.service';
 import {AuthGuardService} from './auth/auth-guard.service';
 import * as moment from 'moment';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   // { path: '', component: SignInComponent},
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [

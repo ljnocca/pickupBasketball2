@@ -21,7 +21,10 @@
 <div class="lib-flex statusDiv">
   <div>
     <p class="title">PLAYERS IN: {{playersIn.length}} <i class="material-icons">thumb_up</i></p>
-    <div *ngFor="let player of playersIn; let i = index">
+    <div
+      *ngFor="let player of playersIn; let i = index"
+      [@status]
+    >
       {{i+1}} - {{player.firstName}} {{player.lastName}}
     </div>
   </div>
@@ -30,7 +33,10 @@
 
   <div>
     <p class="title">PLAYERS OUT: {{playersOut.length}}<i class="material-icons">thumb_down</i></p>
-    <div *ngFor="let player of playersOut; let i = index">
+    <div
+      *ngFor="let player of playersOut; let i = index"
+      [@status]
+    >
       {{i+1}} {{player.firstName}} {{player.lastName}}
     </div>
   </div>
